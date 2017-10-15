@@ -58,6 +58,7 @@ class Imdb(object):
 
     def get_title_by_id(self, imdb_id):
         url = self._build_url('/title/maindetails', {'tconst': imdb_id})
+        print url
         response = self._get(url)
 
         if response is None or self._is_redirection_result(response):

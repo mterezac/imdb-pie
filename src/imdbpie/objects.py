@@ -49,12 +49,12 @@ class Person(object):
         return photo_url
 
     def __repr__(self):
-        return '<Person: {0} ({1})>'.format(repr(self.name),
-                                            repr(self.imdb_id))
+        return '{0}, {1}'.format(repr(self.name),
+                                            repr(self.roles))
 
     def __unicode__(self):
-        return '<Person: {0} ({1})>'.format(self.name.encode('utf-8'),
-                                            self.imdb_id)
+        return '{0}, {1}'.format(self.name.encode('utf-8'),
+                                            self.roles)
 
 
 class Title(object):
@@ -145,11 +145,12 @@ class Title(object):
         return [s['url'] for s in slates]
 
     def __repr__(self):
-        return '<Title: {0} - {1}>'.format(repr(self.title),
-                                           repr(self.imdb_id))
+        return "INSERT INTO episodes (name, air_date, grade, runtime, episode_number, season_number)" \
+                "VALUES({0}, {1}, {2}, {3});".format(repr(self.title),
+                                                repr(self.release_date), repr(self.rating), repr(self.runtime))
 
     def __unicode__(self):
-        return '<Title: {0} - {1}>'.format(self.title, self.imdb_id)
+        return '{0}, {1}, {2}, {3}'.format(self.title, self.release_date, self.rating, self.runtime)
 
 
 class Image(object):
